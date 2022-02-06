@@ -64,7 +64,7 @@ class PID_controller():
         error = self.get_error()
         move = Twist()
 
-        g = self.calculate_pid2(error)
+        g = self.calculate_pid(error)
 
         move.angular.z = g * multiplier
         move.linear.x = np.interp(np.abs(move.angular.z),[0, 1],[0.5, 0.25])
